@@ -76,8 +76,8 @@ class Puck {
     if (this.x  < this.game.x) {
       // ding.play();
       this.game.rightscore++;
-      this.reset();
-      //this.game.died=true;
+      //this.reset();
+      this.game.died=true;
     }
   }
 

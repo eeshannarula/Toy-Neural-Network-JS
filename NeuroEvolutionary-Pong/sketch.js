@@ -1,5 +1,3 @@
-// port of Daniel Shiffman's Pong coding challenge
-// by madacoo
 
 // let leftscore = 0;
 // let rightscore = 0;
