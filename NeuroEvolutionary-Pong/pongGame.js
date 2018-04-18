@@ -19,8 +19,8 @@ class pongGame {
       this.brain1 = nn1;
       this.brain2 = nn2;
     } else {
-      this.brain1 = new NeuralNetwork(3, 4, 1);
-      this.brain2 = new NeuralNetwork(3, 4, 1);
+      this.brain1 = new NeuralNetwork(5, 4, 1);
+      this.brain2 = new NeuralNetwork(5, 4, 1);
     }
 
     this.leftscore = 0;
@@ -37,7 +37,9 @@ class pongGame {
 
     if (!this.died) {
 
+      //for (var i = 0; i < 20; i++) {
       this.think();
+    //}
 
       this.lived++;
 
@@ -74,6 +76,10 @@ class pongGame {
     LeftInputs[0] = this.left.y / height;
     LeftInputs[1] = this.puck.x / width;
     LeftInputs[2] = this.puck.y / height;
+    LeftInputs[3] = this.puck.xspeed;
+    LeftInputs[4] = this.puck.yspeed;
+
+
 
     let leftOutput = this.brain1.predict(LeftInputs);
 
@@ -88,9 +94,11 @@ class pongGame {
     //RIGHT PART...
 
     let RightInput = [];
-    RightInput[0] = this.left.y / height;
+    RightInput[0] = this.right.y / height;
     RightInput[1] = this.puck.x / width;
     RightInput[2] = this.puck.y / height;
+    RightInput[3] = this.puck.xspeed;
+    RightInput[4] = this.puck.yspeed;
 
     let rightOutput = this.brain2.predict(RightInput);
 
